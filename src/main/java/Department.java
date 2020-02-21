@@ -1,18 +1,17 @@
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 
 @Entity
 @Table(name = "DEPARTMENT")
+@NamedQuery(name="get_total_dept", query="select count(1) from Department")
+
+@NamedQueries({
+        @NamedQuery(name="get_dept_name_by_id", query="select name from Department where id=:id"),
+        @NamedQuery(name="get_all_dept", query="from Department")
+})
 public class Department {
 
     @Id
@@ -28,10 +27,6 @@ public class Department {
 
     public long getId() {
         return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public String getName() {

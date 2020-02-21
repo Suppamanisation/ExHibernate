@@ -224,6 +224,61 @@ public class MainApp {
                 transaction.rollback();
             }
         }
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            transaction = session.beginTransaction();
+
+
+            List<Long> totalDept=session.createNamedQuery("get_total_dept",Long.class).getResultList();
+            System.out.println("Total Department: "+totalDept.get(0));
+
+            List<String> deptName=session.createNamedQuery("get_dept_name_by_id",String.class)
+                    .setParameter("id", 2L)
+                    .getResultList();
+            for (Object object : deptName) {
+                System.out.println(object);
+            }
+
+            List<Department> departments=session.createNamedQuery("get_all_dept",Department.class)
+                    .getResultList();
+            for (Department department : departments) {
+                System.out.println("ID : "+department.getId()+" \tNAME : "+department.getName());
+            }
+            transaction.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            transaction = session.beginTransaction();
+
+            List<Long> totalDept=session.createNamedQuery("get_total_dept",Long.class).getResultList();
+            System.out.println("Total Department: "+totalDept.get(0));
+
+            List<String> deptName=session.createNamedQuery("get_dept_name_by_id",String.class)
+                    .setParameter("id", 2L)
+                    .getResultList();
+            for (Object object : deptName) {
+                System.out.println(object);
+            }
+
+            List<Department> departments=session.createNamedQuery("get_all_dept",Department.class)
+                    .getResultList();
+            for (Department department : departments) {
+                System.out.println("ID : "+department.getId()+" \tNAME : "+department.getName());
+            }
+            transaction.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
         HibernateUtil.shutdown();
     }
 }

@@ -1,15 +1,15 @@
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 
 @Entity
 @Table(name = "EMPLOYEE")
+@NamedNativeQuery(name = "get_total_emp", query = "select count(1) from EMPLOYEE")
+
+@NamedNativeQueries({
+        @NamedNativeQuery(name = "get_total_emp_by_dept", query = "select count(1) from EMPLOYEE where dpt_id=:did"),
+        @NamedNativeQuery(name = "get_all_emp", query = "select * from EMPLOYEE",resultClass=Employee.class)
+})
+
 public class Employee {
 
     @Id
@@ -35,10 +35,6 @@ public class Employee {
 
     public long getId() {
         return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public String getName() {
