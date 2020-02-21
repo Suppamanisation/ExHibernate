@@ -2,24 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5c0e70e8-b935-45b8-b38b-83af098e6f5a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/063d3d80-0bcb-4792-a3fa-8ab180ede357.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/063d3d80-0bcb-4792-a3fa-8ab180ede357/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ExHibernate.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Department.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Employee.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/HibernateUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/MainApp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Department.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Employee.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/HibernateUtil.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/MainApp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MainApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MainApp.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -142,7 +127,7 @@
       <workItem from="1582015247844" duration="752000" />
       <workItem from="1582016055220" duration="7007000" />
       <workItem from="1582233893358" duration="12000" />
-      <workItem from="1582286629837" duration="2995000" />
+      <workItem from="1582286629837" duration="3599000" />
     </task>
     <servers />
   </component>

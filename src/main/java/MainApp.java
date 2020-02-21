@@ -171,6 +171,59 @@ public class MainApp {
                 transaction.rollback();
             }
         }
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            transaction = session.beginTransaction();
+
+            CriteriaBuilder builder = session.getCriteriaBuilder();
+
+            CriteriaQuery<Object[]> criteriaQuery = builder.createQuery(Object[].class);
+            Root<Employee> root = criteriaQuery.from(Employee.class);
+            criteriaQuery.multiselect(builder.count(root.get("name")), root.get("salary"),
+                    root.get("department"));
+            criteriaQuery.groupBy(root.get("salary"), root.get("department"));
+            criteriaQuery.having(builder.greaterThan(root.get("salary"), 1300));
+
+            Query<Object[]> query = session.createQuery(criteriaQuery);
+            List<Object[]> list = query.getResultList();
+            for (Object[] objects : list) {
+                long count = (Long) objects[0];
+                int salary = (Integer) objects[1];
+                Department department = (Department) objects[2];
+                System.out.println("Number of Employee = " + count + "\t SALARY=" + salary
+                        + "\t DEPT NAME=" + department.getName());
+            }
+
+            transaction.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            if (transaction != null) {
+                transaction.rollback();
+            }
+        }
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            transaction = session.beginTransaction();
+
+            CriteriaBuilder builder = session.getCriteriaBuilder();
+
+            CriteriaQuery<Employee> criteriaQuery = builder.createQuery(Employee.class);
+            Root<Employee> root = criteriaQuery.from(Employee.class);
+            criteriaQuery.select(root);
+            criteriaQuery.orderBy(builder.asc(root.get("salary")));
+            Query<Employee> query = session.createQuery(criteriaQuery);
+            List<Employee> list = query.getResultList();
+            for (Employee employee : list) {
+                System.out.println("EMP NAME="+employee.getName()+"\t SALARY="+employee.getSalary());
+            }
+
+            transaction.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            if (transaction != null) {
+                transaction.rollback();
+            }
+        }
         HibernateUtil.shutdown();
     }
 }
