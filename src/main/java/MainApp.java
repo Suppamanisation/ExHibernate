@@ -19,6 +19,8 @@ public class MainApp {
 
             Department department = new Department();
             department.setName("IT Department");
+            Department department1 = new Department();
+            department1.setName("Q&A Department");
 
             Employee employee1 = new Employee();
             employee1.setName("Adam");
@@ -44,7 +46,7 @@ public class MainApp {
             Employee employee4 = new Employee();
             employee4.setName("Frank");
             employee4.setDesignation("Q&A Lead");
-            employee4.setDepartment(department);
+            employee4.setDepartment(department1);
             employee4.setAge(35);
             employee4.setSalary(800);
 
@@ -54,6 +56,7 @@ public class MainApp {
             department.getEmployees().add(employee4);
 
             session.persist(department);
+            session.persist(department1);
 
             CriteriaBuilder builder = session.getCriteriaBuilder();
             CriteriaQuery<Employee> query = builder.createQuery(Employee.class);
@@ -121,7 +124,7 @@ public class MainApp {
             Root<Employee> root2 = criteriaQuery2.from(Employee.class);
             criteriaQuery2.select(builder.max(root2.get("salary")));
             Query<Integer> query2 = session.createQuery(criteriaQuery2);
-            int maxSalary = query2.getSingleResult();
+            long maxSalary = query2.getSingleResult();
             System.out.println("Max Salary = " + maxSalary);
 
             CriteriaQuery<Double> criteriaQuery3 = builder.createQuery(Double.class);
