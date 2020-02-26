@@ -17,6 +17,23 @@ public class MainApp {
             session = HibernateUtil.getSessionFactory().openSession();
             transaction = session.beginTransaction();
 
+//            String hql = "delete from Employee";
+//            Query query = session.createQuery(hql);
+//
+//            query.executeUpdate();
+
+            transaction.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            transaction = session.beginTransaction();
+
             Department department = new Department();
             department.setName("IT Department");
             Department department1 = new Department();
